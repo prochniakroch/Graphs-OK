@@ -13,9 +13,9 @@ echo czas: $(date)
  
 for (( res=$pierwszy; res < $mod ; res+=1 ))
 do 
- echo "time python3 generateGnk.py $n $e $res/$mod 2>/dev/null | ./sito5 $t | tee -a wynikGnk$n_$e.txt"
+ echo "time python3 generateGnk.py $n $e $res/$mod 2>/dev/null | ./sito5 $t | grep . | tee -a wynikGnk$n_$e.txt"
  echo "./checkGnk.sh $n $e $mod $res" > gnk_todo$n_$e.sh
- time python3 generateGnk.py $n $e $res/$mod 2>/dev/null | ./sito5 $t | tee -a wynikGnk$n_$e.txt
+ time python3 generateGnk.py $n $e $res/$mod 2>/dev/null | ./sito5 $t | grep . | tee -a wynikGnk$n_$e.txt
 done 
  
 echo czas: $(date) 

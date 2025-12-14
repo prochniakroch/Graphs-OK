@@ -68,7 +68,7 @@ def main():
         
         # Szybki test na start (rzadki przypadek)
         if terazEnergia < EPSILON:
-            sys.stdout.write(nx.to_graph6_string(G) + '\n')
+            sys.stdout.write(nx.to_graph6_bytes(G, header=False).decode('ascii') + '\n')
             sys.stdout.flush()
             continue
 
@@ -120,7 +120,7 @@ def main():
 
                     # Sprawdzenie sukcesu
                     if terazEnergia < EPSILON:
-                        sys.stdout.write(nx.to_graph6_string(G) + '\n')
+                        sys.stdout.write(nx.to_graph6_bytes(G, header=False).decode('ascii') + '\n')
                         sys.stdout.flush()
                         temperatura = -1 # Hack żeby wyjść z pętli while temperatura
                         break

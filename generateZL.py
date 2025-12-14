@@ -51,9 +51,8 @@ def main():
         terazJakosc = sprawdzanieJakosci(G)
 
         if(terazJakosc < EPSILON):
-            sys.stdout.write(nx.to_graph6_string(G) + '\n')
+            sys.stdout.write(nx.to_graph6_bytes(G, header=False).decode('ascii') + '\n')
             sys.stdout.flush()
-            return G
         
         iloscPoprawek = 0
 
@@ -83,9 +82,8 @@ def main():
                 iloscPoprawek = 0
 
                 if terazJakosc < EPSILON:
-                    sys.stdout.write(nx.to_graph6_string(G) + '\n')
+                    sys.stdout.write(nx.to_graph6_bytes(G, header=False).decode('ascii') + '\n')
                     sys.stdout.flush()
-                    return G
             else:
                 G.add_edge(a, b)
                 G.remove_edge(c, d)

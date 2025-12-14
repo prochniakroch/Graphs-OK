@@ -995,3 +995,222 @@ user    0m55.738s
 sys     0m0.187s
 
 czas +- 10h
+
+rochp@KomputerRP:/mnt/c/Users/rochp/Documents/Politechnika/Graphs-OK$ bash checkZL.sh 15 36 $((2**29)) 0
+czas: Sun Dec 14 19:39:45 CET 2025
+time python3 generateZL.py 15 36 0/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m54.521s
+user    0m54.540s
+sys     0m0.011s
+time python3 generateZL.py 15 36 1/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m55.849s
+user    0m55.850s
+sys     0m0.020s
+time python3 generateZL.py 15 36 2/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m52.877s
+user    0m52.857s
+sys     0m0.021s
+time python3 generateZL.py 15 36 3/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m56.692s
+user    0m56.667s
+sys     0m0.011s
+time python3 generateZL.py 15 36 4/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m56.982s
+user    0m56.924s
+sys     0m0.011s
+time python3 generateZL.py 15 36 5/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m55.808s
+user    0m55.709s
+sys     0m0.034s
+time python3 generateZL.py 15 36 6/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m52.584s
+user    0m52.520s
+sys     0m0.011s
+time python3 generateZL.py 15 36 7/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m54.810s
+user    0m54.832s
+sys     0m0.011s
+time python3 generateZL.py 15 36 8/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m53.249s
+user    0m53.225s
+sys     0m0.041s
+time python3 generateZL.py 15 36 9/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m49.630s
+user    0m49.531s
+sys     0m0.021s
+time python3 generateZL.py 15 36 10/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m53.593s
+user    0m53.510s
+sys     0m0.011s
+time python3 generateZL.py 15 36 11/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m53.709s
+user    0m53.734s
+sys     0m0.011s
+time python3 generateZL.py 15 36 12/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m49.988s
+user    0m49.989s
+sys     0m0.031s
+time python3 generateZL.py 15 36 13/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m52.227s
+user    0m52.138s
+sys     0m0.020s
+time python3 generateZL.py 15 36 14/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m53.930s
+user    0m53.787s
+sys     0m0.062s
+time python3 generateZL.py 15 36 15/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m57.806s
+user    0m57.737s
+sys     0m0.044s
+time python3 generateZL.py 15 36 16/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m55.167s
+user    0m55.153s
+sys     0m0.040s
+time python3 generateZL.py 15 36 17/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m54.704s
+user    0m54.706s
+sys     0m0.011s
+time python3 generateZL.py 15 36 18/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m53.837s
+user    0m53.794s
+sys     0m0.041s
+time python3 generateZL.py 15 36 19/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m55.912s
+user    0m55.833s
+sys     0m0.034s
+time python3 generateZL.py 15 36 20/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m56.768s
+user    0m56.689s
+sys     0m0.011s
+time python3 generateZL.py 15 36 21/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m55.333s
+user    0m55.232s
+sys     0m0.001s
+time python3 generateZL.py 15 36 22/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m59.254s
+user    0m59.206s
+sys     0m0.031s
+time python3 generateZL.py 15 36 23/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m50.144s
+user    0m50.193s
+sys     0m0.021s
+time python3 generateZL.py 15 36 24/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m53.961s
+user    0m53.947s
+sys     0m0.031s
+time python3 generateZL.py 15 36 25/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m54.383s
+user    0m54.331s
+sys     0m0.021s
+time python3 generateZL.py 15 36 26/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m58.500s
+user    0m58.435s
+sys     0m0.041s
+time python3 generateZL.py 15 36 27/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m51.542s
+user    0m51.397s
+sys     0m0.020s
+time python3 generateZL.py 15 36 28/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m57.672s
+user    0m57.622s
+sys     0m0.031s
+time python3 generateZL.py 15 36 29/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m54.376s
+user    0m54.369s
+sys     0m0.041s
+time python3 generateZL.py 15 36 30/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m53.573s
+user    0m53.575s
+sys     0m0.021s
+time python3 generateZL.py 15 36 31/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m52.213s
+user    0m52.168s
+sys     0m0.021s
+time python3 generateZL.py 15 36 32/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m58.556s
+user    0m58.463s
+sys     0m0.052s
+time python3 generateZL.py 15 36 33/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m58.625s
+user    0m58.578s
+sys     0m0.000s
+time python3 generateZL.py 15 36 34/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m54.213s
+user    0m54.077s
+sys     0m0.031s
+time python3 generateZL.py 15 36 35/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m55.526s
+user    0m55.515s
+sys     0m0.030s
+time python3 generateZL.py 15 36 36/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m54.196s
+user    0m54.188s
+sys     0m0.041s
+time python3 generateZL.py 15 36 37/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m58.254s
+user    0m58.201s
+sys     0m0.030s
+time python3 generateZL.py 15 36 38/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m52.908s
+user    0m52.880s
+sys     0m0.030s
+time python3 generateZL.py 15 36 39/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m51.641s
+user    0m51.438s
+sys     0m0.010s
+time python3 generateZL.py 15 36 40/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+
+real    0m55.933s
+user    0m55.931s
+sys     0m0.011s
+time python3 generateZL.py 15 36 41/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+6
+real    0m54.149s
+user    0m54.160s
+sys     0m0.034s
+time python3 generateZL.py 15 36 42/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt
+^C^C
+real    0m20.740s
+user    0m20.737s
+sys     0m0.031s
+time python3 generateZL.py 15 36 43/536870912 2>/dev/null | ./sito5 100 | grep . | tee -a wynikzl36.txt

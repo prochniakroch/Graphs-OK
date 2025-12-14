@@ -20,10 +20,9 @@ def main():
     count = 0
 
     while count < LIMIT:
-        G = nx.gnm_random_graph(n, k, seed=random.random())
+        G = nx.gnm_random_graph(n, k)
         if nx.is_connected(G):
-            sys.stdout.write(nx.to_graph6_string(G) + '\n')
-            return G
+            sys.stdout.write(nx.to_graph6_bytes(G, header=False).decode('ascii') + '\n')
         count = count + 1
 
 if __name__ == "__main__":
