@@ -1,0 +1,88 @@
+rochp@KomputerRP:/mnt/c/Users/rochp/Documents/Politechnika/Graphs-OK$ ./calkowite15.sh 15 36 $((2**29)) 0
+czas: Sun Dec 7 16:14:38 CET 2025
+time geng -c 15 36:36 0/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+N???????????~~~~^~_
+N?????????^w~p~k^lG
+
+real    0m0.782s
+user    0m0.980s
+sys     0m0.376s
+time geng -c 15 36:36 1/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    0m3.830s
+user    0m20.057s
+sys     0m0.320s
+time geng -c 15 36:36 2/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    0m27.011s
+user    2m52.546s
+sys     0m2.221s
+time geng -c 15 36:36 3/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    1m19.346s
+user    8m57.617s
+sys     0m6.071s
+time geng -c 15 36:36 4/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    2m24.222s
+user    16m46.803s
+sys     0m10.852s
+time geng -c 15 36:36 5/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    1m40.170s
+user    11m42.669s
+sys     0m7.902s
+time geng -c 15 36:36 6/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    0m10.959s
+user    1m8.026s
+sys     0m0.827s
+time geng -c 15 36:36 7/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    0m0.415s
+user    0m0.551s
+sys     0m0.128s
+time geng -c 15 36:36 8/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    0m36.089s
+user    3m56.833s
+sys     0m2.706s
+time geng -c 15 36:36 9/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    3m15.625s
+user    22m43.826s
+sys     0m14.745s
+time geng -c 15 36:36 10/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    8m58.938s
+user    61m49.486s
+sys     0m43.822s
+time geng -c 15 36:36 11/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    0m16.938s
+user    1m45.338s
+sys     0m1.470s
+time geng -c 15 36:36 12/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    24m4.795s
+user    174m16.065s
+sys     1m56.353s
+time geng -c 15 36:36 13/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    22m52.341s
+user    165m3.653s
+sys     1m50.076s
+time geng -c 15 36:36 14/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    4m57.773s
+user    34m56.491s
+sys     0m23.625s
+time geng -c 15 36:36 15/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
+real    46m14.491s
+user    340m11.459s
+sys     3m48.223s
+time geng -c 15 36:36 16/536870912 2>/dev/null | ./sito5 640000 | tee -a wynik36.txt
+
++- 2h
+
