@@ -7,7 +7,7 @@ n=$1
 e=$2
 mod=$3
 pierwszy=$4
-t=100000
+t=1
  
 echo czas: $(date)  
  

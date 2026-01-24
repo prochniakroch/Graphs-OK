@@ -1,7 +1,7 @@
 #!/bin/bash
 # KTZ 2025 
 # plik: calkowite15.sh
-#./calkowite15.sh 15 36`` $((2**3291)) 0 
+#./calkowite15.sh 15 36 $((2**29)) 0 
 
 n=$1
 e=$2

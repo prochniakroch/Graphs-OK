@@ -9,12 +9,12 @@ import math
 
 # --- KONFIGURACJA ---
 LIMIT_STARTOW = 100       # Ile razy restartujemy algorytm (Nowe losowanie G)
-KROKI_NA_TEMPERATURE = 1  # Ile ruchów robimy dla jednej temperatury (ważne! mała liczba)
+KROKI_NA_TEMPERATURE = 50  # Ile ruchów robimy dla jednej temperatury (ważne! mała liczba)
                           # Jeśli dasz tu 2000, algorytm będzie bardzo wolny.
 
 TEMP_START = 2.0          # Temperatura początkowa
 TEMP_MIN = 0.001          # Temperatura końcowa
-TEMPO_OCHLADZANIA = 0.995 # Jak szybko stygnie
+TEMPO_OCHLADZANIA = 0.95 # Jak szybko stygnie
 
 EPSILON = 1e-9            # Margines błędu
 
