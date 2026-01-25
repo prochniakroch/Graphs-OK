@@ -27,7 +27,7 @@ TEMP_START = 1.0           # Startujemy spokojniej
 TEMP_MIN = 0.0001          # Schodzimy niżej z temperaturą
 TEMPO_OCHLADZANIA = 0.99   # Bardzo powolne stygnięcie (klucz do sukcesu)
 
-
+# --- POBIERANIE WARTOŚCI ---
 def zczytywanieWartosci():
     if len(sys.argv) < 4:
         return 15, 36, 0
@@ -43,21 +43,19 @@ def zczytywanieWartosci():
     except:
         return 15, 36, 0
 
+# --- SPRAWDZANIE ENERGII GRAFU ---
 def sprawdzanieEnergii(G):
-    """
-    Funkcja kosztu (Energia).
-    Im blizej 0, tym graf bardziej calkowity.
-    """
     try:
-        macierz = nx.to_numpy_array(G)
-        wartosci = np.linalg.eigvalsh(macierz)
-        blad = sum(abs(w - round(w)) for w in wartosci)
-        return blad
-
+        macierz = nx.to_numpy_array(G) # Zamiana na macierz sąsiedztwa
+        wartosci = np.linalg.eigvalsh(macierz) # Obliczanie wartości własnych (widma)
+        blad = sum(abs(w - round(w)) for w in wartosci) # Suma odchyleń od najbliższej liczby całkowitej (im bliżej 0, tym lepiej)
+        return blad # Zwracamy energię
     except:
         return float('inf')
 
+# --- GŁÓWNA FUNKCJA ---
 def main():
+    # Ustawianie wartości n, k, seed
     n, k, seed_val = zczytywanieWartosci()
     
     random.seed(seed_val)
@@ -65,12 +63,13 @@ def main():
 
     licznik = 0
 
-    # Pętla restartów (gdyby algorytm utknął i ostygł nie znajdując rozwiązania)
+    # Główna pętla generująca grafy (LIMIT_STARTOW)
     while licznik < LIMIT_STARTOW:
         licznik = licznik + 1
         
-        # 1. Start losowy
+        # 1. Start - generuj losowy graf G(n,k)
         G = nx.gnm_random_graph(n, k)
+        # Sprawdzanie spójności (musi być spójny)
         while not nx.is_connected(G):
             G = nx.gnm_random_graph(n, k)
         
@@ -85,18 +84,22 @@ def main():
         temperatura = TEMP_START
 
         # 2. Pętla Wyżarzania
+        # im wyższa temperatura, tym większa szansa na zaakceptowanie gorszego stanu
+        # im niższa temperatura, tym bardziej zachłanny algorytm
         while temperatura > TEMP_MIN:
-            
+            #sys.stderr.write(f"\r[Seed: {seed_val}] Temp: {temperatura:.6f} | Energia: {terazEnergia:.4f}   ")
+            #sys.stderr.flush()
+
             # Pętla równowagi termicznej (zazwyczaj krótka)
             for _ in range(KROKI_NA_TEMPERATURE):
-                
                 listaKrawedzi = list(G.edges())
                 listaNiekrawedzi = list(nx.non_edges(G))
                 
+                # Jeśli nie ma krawędzi do zamiany, przerywamy
                 if not listaKrawedzi or not listaNiekrawedzi:
                     break
 
-                # Mutacja: Przełączenie krawędzi
+                # Wybieramy losowo krawędź do usunięcia i niekrawędź do dodania
                 a, b = random.choice(listaKrawedzi)
                 c, d = random.choice(listaNiekrawedzi)
 
@@ -128,7 +131,7 @@ def main():
                 if czyZaakceptowac:
                     terazEnergia = nowaEnergia
 
-                    # Sprawdzenie sukcesu
+                    # Sprawdzamy czy jest wystarczająco dobrze
                     if terazEnergia < EPSILON:
                         sys.stdout.write(nx.to_graph6_bytes(G, header=False).decode('ascii') + '\n')
                         sys.stdout.flush()

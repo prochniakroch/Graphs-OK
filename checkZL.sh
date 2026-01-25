@@ -13,9 +13,9 @@ echo czas: $(date)
  
 for (( res=$pierwszy; res < $mod ; res+=1 ))
 do 
- echo "time python3 generateZL.py $n $e $res/$mod 2>/dev/null |./sito2 | grep . | tee -a wynikzl_sito2_$n_$e.txt | ./sito5 $t | grep . | tee -a wynikzl_sito5_$n_$e.txt"
+ echo "time python3 generateZL.py $n $e $res/$mod 2>/dev/null | ./sito5 $t | grep . | tee -a wynikzl_sito5_$n_$e.txt"
  echo "./checkZL.sh $n $e $mod $res" > zl_todo$n_$e.sh
- time python3 generateZL.py $n $e $res/$mod 2>/dev/null |./sito2 | grep . | tee -a wynikzl_sito2_$n_$e.txt | ./sito5 $t | grep . | tee -a wynikzl_sito5_$n_$e.txt
+ time python3 generateZL.py $n $e $res/$mod 2>/dev/null | ./sito5 $t | grep . | tee -a wynikzl_sito5_$n_$e.txt
 done 
  
 echo czas: $(date) 
