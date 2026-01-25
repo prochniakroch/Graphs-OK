@@ -13,9 +13,9 @@ echo czas: $(date)
  
 for (( res=$pierwszy; res < $mod ; res+=1 ))
 do 
- echo "time python3 generateSW.py $n $e $res/$mod 2>/dev/null | ./sito5 $t | grep . | tee -a wyniksw$n_$e.txt"
+ echo "time python3 generateSW.py $n $e $res/$mod 2>/dev/null |./sito2 | grep . | tee -a wyniksw_sito2_$n_$e.txt | ./sito5 $t | grep . | tee -a wyniksw_sito5_$n_$e.txt"
  echo "./checkSW.sh $n $e $mod $res" > sw_todo$n_$e.sh
- time python3 generateSW.py $n $e $res/$mod 2>/dev/null | ./sito5 $t | grep . | tee -a wyniksw$n_$e.txt
+ time python3 generateSW.py $n $e $res/$mod 2>/dev/null |./sito2 | grep . | tee -a wyniksw_sito2_$n_$e.txt | ./sito5 $t | grep . | tee -a wyniksw_sito5_$n_$e.txt
 done 
  
 echo czas: $(date) 

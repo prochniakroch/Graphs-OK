@@ -158,15 +158,37 @@ void AToa(int N, ta A, long double * a) {
 }
  
 /**
-*/
+ * ZMODYFIKOWANA FUNKCJA: Wybiera grafy "PRAWIE CAŁKOWITE"
+ * Zwraca 1 (prawda), jeśli suma błędów widma jest mała (np. < 0.5).
+ */
 int isintegral(int N, long double * x) {
- int i;
- long double u; 
- for (i = 1; i < N; i++) {
-  u = x[i];
-  if  (!(( ceil(u) - u  < 10e-5 ) || ( u - floor(u) < 10e-5 ))) { return 0; };
- }
- return 1; 
+    int i;
+    long double val, dist;
+    long double total_energy = 0.0;
+
+    // Pętla po wszystkich wartościach własnych (indeksowane od 1 do N)
+    for (i = 1; i <= N; i++) {
+        val = x[i];
+        
+        // Obliczamy odległość do najbliższej liczby całkowitej
+        // np. dla 3.01 dist = 0.01
+        // np. dla 2.99 dist = 0.01
+        dist = val - round(val); 
+        
+        // fabs() to moduł z liczby (z biblioteki math.h)
+        total_energy += fabs(dist); 
+    }
+
+    // --- TUTAJ JEST SEDNO ---
+    // Definiujemy próg "prawie całkowitości".
+    // Np. 0.5 oznacza, że graf może mieć np. jedną wartość 3.4 albo pięć wartości 3.1
+    // Im mniejsza liczba, tym sito jest gęstsze.
+    
+    if (total_energy < 0.5) { 
+        return 1; // Znalazłem graf PRAWIE całkowity -> Przepuść go!
+    } else {
+        return 0; // Graf jest zbyt "krzywy" -> Odrzuć.
+    }
 }
  
 /** 

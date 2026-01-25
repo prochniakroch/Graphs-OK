@@ -85,6 +85,7 @@ def main():
                     sys.stdout.write(nx.to_graph6_bytes(G, header=False).decode('ascii') + '\n')
                     sys.stdout.flush()
             else:
+                #jest gorzej, cofamy zmiane
                 G.add_edge(a, b)
                 G.remove_edge(c, d)
                 iloscPoprawek = iloscPoprawek + 1

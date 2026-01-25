@@ -8,15 +8,25 @@ import numpy as np
 import math
 
 # --- KONFIGURACJA ---
-LIMIT_STARTOW = 100       # Ile razy restartujemy algorytm (Nowe losowanie G)
-KROKI_NA_TEMPERATURE = 50  # Ile ruchów robimy dla jednej temperatury (ważne! mała liczba)
-                          # Jeśli dasz tu 2000, algorytm będzie bardzo wolny.
-
-TEMP_START = 2.0          # Temperatura początkowa
-TEMP_MIN = 0.001          # Temperatura końcowa
-TEMPO_OCHLADZANIA = 0.95 # Jak szybko stygnie
-
+#LIMIT_STARTOW = 100       # Ile razy restartujemy algorytm (Nowe losowanie G)
+#KROKI_NA_TEMPERATURE = 50  # Ile ruchów robimy dla jednej temperatury (ważne! mała liczba)
+#                          # Jeśli dasz tu 2000, algorytm będzie bardzo wolny.
+#
+#TEMP_START = 2.0          # Temperatura początkowa
+#TEMP_MIN = 0.001          # Temperatura końcowa
+#TEMPO_OCHLADZANIA = 0.95 # Jak szybko stygnie
+#
 EPSILON = 1e-9            # Margines błędu
+
+
+# --- KONFIGURACJA "GŁĘBOKIE SZUKANIE" ---
+LIMIT_STARTOW = 100000000  # Praktycznie nieskończoność. Wyłączysz ręcznie.
+KROKI_NA_TEMPERATURE = 300 # Daj mu czas na eksplorację
+                          
+TEMP_START = 1.0           # Startujemy spokojniej
+TEMP_MIN = 0.0001          # Schodzimy niżej z temperaturą
+TEMPO_OCHLADZANIA = 0.99   # Bardzo powolne stygnięcie (klucz do sukcesu)
+
 
 def zczytywanieWartosci():
     if len(sys.argv) < 4:

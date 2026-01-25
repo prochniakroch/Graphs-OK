@@ -5,7 +5,7 @@ import sys
 import random
 
 # Ustawienie limitu generowanych grafów
-LIMIT = 100000
+LIMIT = 10000
 
 def main():
     n = int(sys.argv[1])
