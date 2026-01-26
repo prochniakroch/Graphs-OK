@@ -6,6 +6,7 @@ import sys
 import random
 import numpy as np
 import math
+import os
 
 # --- KONFIGURACJA ---
 #LIMIT_STARTOW = 100       # Ile razy restartujemy algorytm (Nowe losowanie G)
@@ -26,6 +27,8 @@ KROKI_NA_TEMPERATURE = 300 # Daj mu czas na eksplorację
 TEMP_START = 1.0           # Startujemy spokojniej
 TEMP_MIN = 0.0001          # Schodzimy niżej z temperaturą
 TEMPO_OCHLADZANIA = 0.99   # Bardzo powolne stygnięcie (klucz do sukcesu)
+
+NAJBLIZSZE_GRAFY = [] # Przechowuje (energia, graf w formacie graph6)
 
 # --- POBIERANIE WARTOŚCI ---
 def zczytywanieWartosci():
@@ -53,10 +56,58 @@ def sprawdzanieEnergii(G):
     except:
         return float('inf')
 
+# --- NAJBLIZSZE GRAFY TOP3 ---
+def top3(G, energia, n, k):
+    global NAJBLIZSZE_GRAFY
+
+    graf = nx.to_graph6_bytes(G, header=False).decode('ascii').strip()
+
+    # Sprawdzamy czy graf już jest zapisany, aby nie było duplikatów
+    for j, zapisaneGrafy in NAJBLIZSZE_GRAFY:
+        if zapisaneGrafy == graf:
+            return
+    
+    # Dodajemy do listy, jeśli jest miejsce lub jeśli energia jest lepsza niż najgorsza w top3
+    if len(NAJBLIZSZE_GRAFY) < 3 or energia < NAJBLIZSZE_GRAFY[-1][0]:
+        NAJBLIZSZE_GRAFY.append((energia, graf))
+
+        NAJBLIZSZE_GRAFY.sort(key=lambda x: x[0]) # Sortujemy po energii
+        NAJBLIZSZE_GRAFY = NAJBLIZSZE_GRAFY[:3] # Trzymamy tylko top 3
+
+        nazwa_pliku = f"TOP3_SW_N={n}_K={k}.txt"
+        with open(nazwa_pliku, "w") as x:
+            x.write(f"# TOP 3 grafy o najniższej energii dla N={n}, K={k}\n")
+            x.write(f"# Format: energia grafu, graf w formacie graph6\n")
+            for j, g in NAJBLIZSZE_GRAFY:
+                x.write(f"{j:.8f} {g}\n")
+
+# --- WCZYTYWANIE TOP3 Z PLIKU (aby nie czyściło go po zmianie ziarna) ---
+def wczytajtop3(n, k):
+    global NAJBLIZSZE_GRAFY
+    nazwa_pliku = f"TOP3_SW_N={n}_K={k}.txt"
+
+    if not os.path.exists(nazwa_pliku): # Sprawdzamy czy plik istnieje
+        return
+
+    try:
+        with open(nazwa_pliku, "r") as x:
+            lines = x.readlines()[2:] # Pomijamy nagłówki
+            for line in lines:
+                parts = line.strip().split()
+                energia = float(parts[0])
+                graf = parts[1]
+                NAJBLIZSZE_GRAFY.append((energia, graf))
+        NAJBLIZSZE_GRAFY.sort(key=lambda x: x[0]) # Sortujemy po jakości
+        NAJBLIZSZE_GRAFY = NAJBLIZSZE_GRAFY[:3] # Trzymamy tylko top 3
+    except Exception as e:
+        sys.stderr.write(f"\rBłąd przy wczytywaniu pliku TOP3: {e}\n")
+
 # --- GŁÓWNA FUNKCJA ---
 def main():
     # Ustawianie wartości n, k, seed
     n, k, seed_val = zczytywanieWartosci()
+
+    wczytajtop3(n, k) # Wczytujemy poprzednie top3
     
     random.seed(seed_val)
     np.random.seed(seed_val)
@@ -75,6 +126,9 @@ def main():
         
         terazEnergia = sprawdzanieEnergii(G)
         
+        # Zapisywanie do top3
+        top3(G, terazEnergia, n, k)
+
         # Szybki test na start (rzadki przypadek)
         if terazEnergia < EPSILON:
             sys.stdout.write(nx.to_graph6_bytes(G, header=False).decode('ascii') + '\n')
@@ -115,6 +169,10 @@ def main():
                 czyZaakceptowac = False
 
                 nowaEnergia = sprawdzanieEnergii(G)
+
+                # Zapisywanie do top3
+                top3(G, nowaEnergia, n, k)
+
                 delta = nowaEnergia - terazEnergia # O ile zmienił się błąd?
 
                 # --- LOGIKA METROPOLISA ---
