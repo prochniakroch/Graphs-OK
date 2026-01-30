@@ -1,5 +1,5 @@
 # TOP 3 grafy o najniższej energii dla N=15, K=36
 # Format: energia grafu, graf w formacie graph6
-0.26441366 NX?EfElsWBYC?W?WC]_
-0.26441366 NX?EfqlsWBYK?G?WCU_
-0.26441366 NX?EdjlsW@YK?W?WCY_
+0.39846416 Nc?Q_AEp_`wpcv??NbW
+0.39846416 Nc?Q_AEp_`wpdt??N`w
+0.39846416 Ne?O_AEpa`opkf??H\w

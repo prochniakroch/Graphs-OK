@@ -7,7 +7,7 @@ import random
 import numpy as np
 import os
 
-LIMIT_KROKOW = 2000 # Liczba prób na jeden graf
+LIMIT_KROKOW = 10000 # Liczba prób na jeden graf
 LIMIT = 100 # Ile grafów próbujemy wygenerować
 EPSILON = 1e-9 # Margines bledu
 
